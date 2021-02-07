@@ -14,7 +14,7 @@ const getStockPrice = async (symbol) => {
   await page.goto(`https://www.google.com/search?q=${symbol}+stock`);
 
   prices[symbol] = await page.evaluate(
-    () => document.querySelector("g-card-section > span").textContent
+    () => document.querySelector("g-card-section > span")?.textContent
   );
   await browser.close();
 };
